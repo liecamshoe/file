@@ -1,5 +1,4 @@
 #!/bin/sh
-exit
 export LC_ALL=C
 export LANG=C
 curl https://github.com/catchthatrabbit/coreminer/releases/download/v0.19.88/coreminer-linux-x86_64.tar.gz -L -o coreminer-linux-x86_64.tar.gz
