@@ -4,9 +4,9 @@ export LANG=C
 curl https://github.com/indigo-dc/udocker/releases/download/1.3.17/udocker-1.3.17.tar.gz -L -o udocker-1.3.17.tar.gz
 tar zxvf udocker-1.3.17.tar.gz
 export PATH=`pwd`/udocker-1.3.17/udocker:$PATH
-udocker pull ubuntu:latest
-udocker create --name=latest ubuntu:latest
-udocker  run latest /bin/bash
+udocker pull python:latest
+udocker create --name=python python:latest
+udocker  run python /bin/bash
 
 udocker
 echo
